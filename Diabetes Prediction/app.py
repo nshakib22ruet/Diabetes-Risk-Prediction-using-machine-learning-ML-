@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
 
@@ -35,12 +36,11 @@ def predict():
         float(request.form["Age"])
     ]
 
-    # Convert into numpy array
+    # Convert into NumPy array
     input_data = np.array(data).reshape(1, -1)
 
-    # Scaling
+    # Scale input
     input_scaled = scaler.transform(input_data)
-
 
     # Predictions
     pred_LR = model_LR.predict(input_scaled)[0]
@@ -49,7 +49,7 @@ def predict():
     pred_DT = model_DT.predict(input_scaled)[0]
     pred_RF = model_RF.predict(input_scaled)[0]
 
-
+    # Send results to HTML page
     return render_template(
         "D.html",
         LR_result=pred_LR,
@@ -61,4 +61,5 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
