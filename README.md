@@ -1,4 +1,7 @@
 # Diabetes Risk Prediction Using Machine Learning
+## Live Demo
+
+🔗 https://diabetes-risk-prediction-using-machine-qij4.onrender.com
 
 ## Overview
 This project predicts whether a patient is likely to have diabetes using Machine Learning models. Users enter medical information through a Flask web application, and the system compares predictions from five different models.
