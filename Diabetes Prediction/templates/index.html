@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diabetes Risk Prediction using Machine Learning (ML)</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e17;
+    --panel:#111826;
+    --line:#1f2a3d;
+    --cyan:#38e0ff;
+    --text:#d9e4f0;
+    --muted:#7c8ba3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      linear-gradient(rgba(56,224,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,224,255,0.05) 1px, transparent 1px);
+    background-size:34px 34px;
+    color:var(--text);
+    font-family:'Share Tech Mono', monospace;
+    min-height:100vh;
+    padding:36px 16px 60px;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+
+  h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:22px;
+    color:#fff;
+    letter-spacing:0.5px;
+    margin:0 0 4px;
+  }
+  .sub{color:var(--cyan);font-size:12.5px;letter-spacing:1px;margin:0 0 30px;}
+
+  form{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px;
+  }
+
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;font-size:13px;color:var(--text);margin-bottom:6px;
+  }
+  .field label .unit{color:var(--muted);font-size:11.5px;}
+  .field input{
+    width:100%;
+    font-family:'Share Tech Mono', monospace;
+    font-size:15px;
+    padding:10px 12px;
+    background:#0d1420;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:#fff;
+  }
+  .field input:focus{
+    outline:none;
+    border-color:var(--cyan);
+  }
+
+  button{
+    width:100%;
+    margin-top:6px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:1px;
+    color:#0a0e17;
+    background:var(--cyan);
+    border:none;
+    border-radius:8px;
+    padding:14px;
+    cursor:pointer;
+  }
+  button:hover{opacity:0.9;}
+
+  footer{
+    text-align:center;margin-top:24px;font-size:11px;color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Diabetes Risk Prediction using Machine Learning (ML)</h1>
+  <p class="sub">// ENTER PATIENT VALUES — COMPARE 5 DIFFERENT TYPES OF MODEL</p>
+
+  <form action="/predict" method="POST">
+
+    <div class="field">
+      <label>Pregnancies <span class="unit">(count)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="Pregnancies" placeholder="e.g. 2" required>
+    </div>
+
+    <div class="field">
+      <label>Glucose <span class="unit">(mg/dL)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="Glucose" placeholder="e.g. 120" required>
+    </div>
+
+    <div class="field">
+      <label>Blood Pressure <span class="unit">(mmHg)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="BloodPressure" placeholder="e.g. 70" required>
+    </div>
+
+    <div class="field">
+      <label>Skin Thickness <span class="unit">(mm)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="SkinThickness" placeholder="e.g. 20" required>
+    </div>
+
+    <div class="field">
+      <label>Insulin <span class="unit">(μU/mL)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="Insulin" placeholder="e.g. 79" required>
+    </div>
+
+    <div class="field">
+      <label>BMI <span class="unit">(kg/m²)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="BMI" placeholder="e.g. 27.5" required>
+    </div>
+
+    <div class="field">
+      <label>Diabetes Pedigree Function</label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="DPF" placeholder="e.g. 0.47" required>
+    </div>
+
+    <div class="field">
+      <label>Age <span class="unit">(years)</span></label>
+      <input type="text" inputmode="decimal" pattern="^\d*\.?\d*$" name="Age" placeholder="e.g. 33" required>
+    </div>
+
+    <button type="submit">PREDICT</button>
+  </form>
+
+  <footer>Pima Indians Diabetes Dataset · 5-model ML comparison</footer>
+</div>
+</body>
+</html>
